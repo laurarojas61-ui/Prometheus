@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nueva Propiedad - Prometheus</title>
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/layout.css">
+  <link rel="stylesheet" href="css/responsive.css" />
+
+</head>
+
+<body>
+  <div class="app-layout">
+    <!-- Sidebar (mismo contenido) -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">P</div>
+        <span class="logo-text">PROMETHEUS</span>
+      </div>
+
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="../../dashboard.html" class="nav-link">
+              <span class="nav-icon">📊</span>
+              Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="../propiedades/listar.html" class="nav-link active">
+              <span class="nav-icon">🏠</span>
+              Propiedades
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="listar.html" class="nav-link">
+              <span class="nav-icon">👥</span>
+              Inquilinos
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="../alquileres/listar.html" class="nav-link">
+              <span class="nav-icon">📋</span>
+              Alquileres
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="../pagos/listar.html" class="nav-link">
+              <span class="nav-icon">💰</span>
+              Planes de Pagos
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="../perfil/configuracion.html" class="nav-link">
+              <span class="nav-icon">👤</span>
+              Perfil
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="topbar">
+        <button class="mobile-menu-toggle" onclick="toggleSidebar()">☰</button>
+        <h1 class="page-title">Nuevo Inquilino</h1>
+          <div class="user-menu">
+            <div class="user-avatar">DC</div>
+            <span>Diego Castro</span>
+            <button class="btn btn-secondary btn-sm" onclick="logout()">Cerrar sesión</button>
+          </div>
+      </div>
+
+      <!-- Breadcrumb -->
+      <nav style="margin-bottom: var(--spacing-lg);">
+        <span style="color: var(--text-muted);">
+          <a href="listar.html" style="color: var(--primary-color);">Inquilinos</a> > Crear
+        </span>
+      </nav>
+
+      <!-- Formulario -->
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">Información del Inquilino</h2>
+        </div>
+
+        <form onsubmit="handleSubmit(event)">
+          <div
+            style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-lg); margin-bottom: var(--spacing-lg);">
+            <div class="form-group">
+              <label class="form-label" for="nombre">Nombre</label>
+              <input type="text" id="nombre" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="numero-documento">Número documento</label>
+              <input type="text" id="numero-documento" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="telefono">Teléfono</label>
+              <input type="text" id="telefono" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="correo">Correo</label>
+              <input type="text" id="correo" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="edad">Edad</label>
+              <input type="text" id="edad" class="form-control" required>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: var(--spacing-md); justify-content: flex-end; margin-top: var(--spacing-xl);">
+            <button type="submit" class="btn btn-primary">Crear</button>
+            <button type="button" class="btn btn-secondary" onclick="createAndNew()">Crear y crear otro</button>
+            <a href="listar.html" class="btn btn-secondary">Cancelar</a>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../js/navigation.js"></script>
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault();
+      // Simulación de creación exitosa
+      alert('Propiedad creada exitosamente');
+      window.location.href = 'listar.html';
+    }
+
+    function createAndNew() {
+      // Simulación de creación exitosa
+      alert('Propiedad creada exitosamente');
+      // Limpiar formulario
+      document.querySelector('form').reset();
+    }
+  </script>
+</body>
+
+</html>

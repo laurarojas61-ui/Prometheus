@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Prometheus</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+    <div class="logo">P</div>
+    <span class="logo-text">PROMETHEUS</span>
+    </div>
+            
+    <nav>
+    <ul class="nav-menu">
+    <li class="nav-item">
+    <a href="dashboard.html" class="nav-link active">
+    <span class="nav-icon">📊</span>
+    Dashboard
+    </a>
+    </li>
+    <li class="nav-item">
+    <a href="pages/propiedades/listar.html" class="nav-link">
+    <span class="nav-icon">🏠</span>
+    Propiedades
+    </a>
+    </li>
+    <li class="nav-item">
+    <a href="pages/inquilinos/listar.html" class="nav-link">
+    <span class="nav-icon">👥</span>
+    Inquilinos
+    </a>
+    </li>
+    <li class="nav-item">
+    <a href="pages/alquileres/listar.html" class="nav-link">
+    <span class="nav-icon">📋</span>
+    Alquileres
+    </a>
+    </li>
+    <li class="nav-item">
+    <a href="pages/pagos/listar.html" class="nav-link">
+    <span class="nav-icon">💰</span>
+    Planes de Pagos
+    </a>
+    </li>
+    <li class="nav-item">
+    <a href="pages/perfil/configuracion.html" class="nav-link">
+    <span class="nav-icon">👤</span>
+    Perfil
+    </a>
+    </li>
+    </ul>
+    </nav>
+    </aside>
+        
+    <!-- Main Content -->
+    <main class="main-content">
+    <div class="topbar">
+    <button class="mobile-menu-toggle" onclick="toggleSidebar()">☰</button>
+    <h1 class="page-title">Dashboard</h1>
+    <div class="user-menu">
+    <div class="user-avatar">DC</div>
+    <span>Diego Castro</span>
+    <button class="btn btn-secondary btn-sm" onclick="logout()">Cerrar sesión</button>
+    </div>
+    </div>
+            
+    <!-- Filtros del Dashboard -->
+    <div class="card" style="margin-bottom: var(--spacing-xl);">
+    <div class="card-header">
+    <h2 class="card-title">Filtros</h2>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--spacing-lg);">
+    <div class="form-group">
+    <label class="form-label">Solo alquileres activos</label>
+    <select class="form-control">
+    <option>Todos</option>
+    <option>Solo activos</option>
+    <option>Solo inactivos</option>
+    </select>
+    </div>
+    <div class="form-group">
+    <label class="form-label">Fecha Inicio</label>
+    <input type="date" class="form-control">
+    </div>
+    <div class="form-group">
+    <label class="form-label">Fecha Fin</label>
+    <input type="date" class="form-control">
+    </div>
+    </div>
+    </div>
+            
+    <!-- Tarjetas de métricas -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-lg); margin-bottom: var(--spacing-xl);">
+    <div class="card">
+    <h3 style="color: var(--text-secondary); font-size: var(--font-size-sm); margin-bottom: var(--spacing-sm);">Ganancia</h3>
+    <div style="font-size: var(--font-size-2xl); font-weight: 600; margin-bottom: var(--spacing-sm);">$800k</div>
+    <div style="color: var(--success-color); font-size: var(--font-size-sm);">📈 30% de aumento</div>
+    </div>
+                
+    <div class="card">
+    <h3 style="color: var(--text-secondary); font-size: var(--font-size-sm); margin-bottom: var(--spacing-sm);">Nuevos clientes</h3>
+    <div style="font-size: var(--font-size-2xl); font-weight: 600; margin-bottom: var(--spacing-sm);">2</div>
+    <div style="color: var(--danger-color); font-size: var(--font-size-sm);">📉 50% menos</div>
+    </div>
+                
+    <div class="card">
+    <h3 style="color: var(--text-secondary); font-size: var(--font-size-sm); margin-bottom: var(--spacing-sm);">Nuevos alquileres</h3>
+    <div style="font-size: var(--font-size-2xl); font-weight: 600; margin-bottom: var(--spacing-sm);">3</div>
+    <div style="color: var(--success-color); font-size: var(--font-size-sm);">📈 7% de aumento</div>
+    </div>
+    </div>
+    </main>
+    </div>
+    
+    <script src="js/navigation.js"></script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propiedades - Prometheus</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/layout.css">
+    <link rel="stylesheet" href="css/responsive.css" />
+</head>
+
+<body>
+    <div class="app-layout">
+        <!-- Sidebar (mismo contenido que dashboard) -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">P</div>
+                <span class="logo-text">PROMETHEUS</span>
+            </div>
+
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="../../dashboard.html" class="nav-link">
+                            <span class="nav-icon">📊</span>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="listar.html" class="nav-link active">
+                            <span class="nav-icon">🏠</span>
+                            Propiedades
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../inquilinos/listar.html" class="nav-link">
+                            <span class="nav-icon">👥</span>
+                            Inquilinos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../alquileres/listar.html" class="nav-link">
+                            <span class="nav-icon">📋</span>
+                            Alquileres
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../pagos/listar.html" class="nav-link">
+                            <span class="nav-icon">💰</span>
+                            Planes de Pagos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../perfil/configuracion.html" class="nav-link">
+                            <span class="nav-icon">👤</span>
+                            Perfil
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="topbar">
+                <button class="mobile-menu-toggle" onclick="toggleSidebar()">☰</button>
+                <h1 class="page-title">Propiedades</h1>
+                <div class="user-menu">
+                    <div class="user-avatar">DC</div>
+                    <span>Diego Castro</span>
+                    <button class="btn btn-secondary btn-sm" onclick="logout()">Cerrar sesión</button>
+                </div>
+            </div>
+
+            <!-- Filtros y búsqueda -->
+            <div class="card" style="margin-bottom: var(--spacing-xl);">
+                <div style="display: flex; justify-content: between; align-items: center; gap: var(--spacing-lg);">
+                    <div style="flex: 1;">
+                        <input type="text" class="form-control" placeholder="Buscar propiedades...">
+                    </div>
+                    <a href="crear.html" class="btn btn-primary">Nueva propiedad</a>
+                </div>
+            </div>
+
+            <!-- Tabla de propiedades -->
+            <div class="card">
+                <div class="table-container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Dirección</th>
+                                <th>Está rentado</th>
+                                <th>Creado</th>
+                                <th>Actualizado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Casa Ejemplo</td>
+                                <td>Calle Ejemplo 123</td>
+                                <td><span class="badge badge-success">Sí</span></td>
+                                <td>2/05/25</td>
+                                <td>2/05/25</td>
+                                <td>
+                                    <div style="display: flex; gap: var(--spacing-sm);">
+                                        <a href="editar.html?id=1" class="btn btn-secondary btn-sm">✏️ Editar</a>
+                                        <button class="btn btn-danger btn-sm" onclick="confirmDelete(1)">🗑️
+                                            Eliminar</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Apartamento Central</td>
+                                <td>Av. Principal 456</td>
+                                <td><span class="badge badge-danger">No</span></td>
+                                <td>2/05/25</td>
+                                <td>2/05/25</td>
+                                <td>
+                                    <div style="display: flex; gap: var(--spacing-sm);">
+                                        <a href="editar.html?id=2" class="btn btn-secondary btn-sm">✏️ Editar</a>
+                                        <button class="btn btn-danger btn-sm" onclick="confirmDelete(2)">🗑️
+                                            Eliminar</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Paginación -->
+                <div
+                    style="display: flex; justify-content: between; align-items: center; margin-top: var(--spacing-lg); padding-top: var(--spacing-lg); border-top: 1px solid var(--border-color);">
+                    <span style="color: var(--text-secondary);">Mostrando del 1 al 2 de 100 resultados</span>
+                    <div style="display: flex; gap: var(--spacing-sm);">
+                        <button class="btn btn-secondary btn-sm">Anterior</button>
+                        <button class="btn btn-secondary btn-sm">1</button>
+                        <button class="btn btn-secondary btn-sm">2</button>
+                        <button class="btn btn-secondary btn-sm">3</button>
+                        <button class="btn btn-secondary btn-sm">Siguiente</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal de confirmación de eliminación -->
+    <div class="modal" id="deleteModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Confirmar eliminación</h3>
+                <button class="modal-close" onclick="closeDeleteModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>¿Estás seguro de que deseas eliminar este registro?</p>
+                <p style="color: var(--text-muted); font-size: var(--font-size-sm);">Esta acción no se puede deshacer.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeDeleteModal()">Cancelar</button>
+                <button class="btn btn-danger" onclick="deleteProperty()">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/navigation.js"></script>
+    <script src="../../js/modals.js"></script>
+    <script>
+        let propertyToDelete = null;
+
+        function confirmDelete(id) {
+            propertyToDelete = id;
+            document.getElementById('deleteModal').classList.add('active');
+        }
+
+        function closeDeleteModal() {
+            document.getElementById('deleteModal').classList.remove('active');
+            propertyToDelete = null;
+        }
+
+        function deleteProperty() {
+            if (propertyToDelete) {
+                // Aquí iría la lógica de eliminación
+                console.log(`Eliminar propiedad ${propertyToDelete}`);
+                closeDeleteModal();
+                // Recargar la página o actualizar la tabla
+                location.reload();
+            }
+        }
+    </script>
+</body>
+
+</html>

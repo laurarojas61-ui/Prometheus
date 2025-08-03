@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Prometheus</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/layout.css">
+    <link rel="stylesheet" href="css/responsive.css" />
+</head>
+
+<body>
+    <div class="app-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">P</div>
+                <span class="logo-text">PROMETHEUS</span>
+            </div>
+
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="../../dashboard.html" class="nav-link">
+                            <span class="nav-icon">📊</span>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="pages/propiedades/listar.html" class="nav-link">
+                            <span class="nav-icon">🏠</span>
+                            Propiedades
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="pages/inquilinos/listar.html" class="nav-link">
+                            <span class="nav-icon">👥</span>
+                            Inquilinos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="pages/alquileres/listar.html" class="nav-link">
+                            <span class="nav-icon">📋</span>
+                            Alquileres
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="pages/pagos/listar.html" class="nav-link">
+                            <span class="nav-icon">💰</span>
+                            Planes de Pagos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="pages/perfil/configuracion.html" class="nav-link active">
+                            <span class="nav-icon">👤</span>
+                            Perfil
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="topbar">
+                <button class="mobile-menu-toggle" onclick="toggleSidebar()">☰</button>
+                <h1 class="page-title">Perfil</h1>
+                <div class="user-menu">
+                    <div class="user-avatar">DC</div>
+                    <span>Diego Castro</span>
+                    <button class="btn btn-secondary btn-sm" onclick="logout()">Cerrar sesión</button>
+                </div>
+            </div>
+
+            <!-- Sección 1 -->
+            <div class="card"
+                style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-lg); margin-bottom: var(--spacing-lg);">
+                <div class="form-group">
+                    <label class="form-label" for="edad">Nombre</label>
+                    <input type="text" id="edad" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="edad">Número documento</label>
+                    <input type="text" id="edad" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="edad">Teléfono</label>
+                    <input type="text" id="edad" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="edad">Correo electrónico</label>
+                    <input type="text" id="edad" class="form-control" required>
+                </div>
+
+            </div>
+
+            <!-- Sección 2 -->
+            <div class="card"
+                style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-lg); margin-bottom: var(--spacing-lg);">
+                <div class="form-group">
+                    <label class="form-label" for="edad">Contraseña actual</label>
+                    <input type="text" id="edad" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="edad">Nueva contraseña</label>
+                    <input type="text" id="edad" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="edad">Confirmar nueva contraseña<< /label>
+                            <input type="text" id="edad" class="form-control" required>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="js/navigation.js"></script>
+</body>
+
+</html>
